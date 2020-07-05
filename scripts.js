@@ -27,6 +27,10 @@ class EventsStore {
     this._filters[name] = value;
   }
 
+  unsetFilter(name) {
+    delete this._filters[name];
+  }
+
   get filtersMap() {
     return {
       'city': city => item => item.city === city,
@@ -101,7 +105,12 @@ fetch('events.json')
 
     filter.addEventListener('change', (event) => {
       const {name, value} = event.target;
-      store.setFilter(name, value);
+
+      if (value === 'all') {
+        store.unsetFilter(name);
+      } else {
+        store.setFilter(name, value);
+      }
 
       renderEvents(store.getEvents());
     });
