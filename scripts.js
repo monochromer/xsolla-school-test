@@ -62,7 +62,7 @@ function eventTemplate(event) {
     <svg class="event__size-helper" viewbox="0 0 3 2"></svg>
     <img class="event__image" src="${event.image}" alt="${event.name}">
     <div class="event__main">
-      <h2 class="event__item event__title">${event.name}</h2>
+      <h2 class="event__title">${event.name}</h2>
       <div class="event__meta">
         <div class=event__day">${event.date.getDate()}</div>
         <button class="event__bookmark bookmark-button" type="button" name="bookmark" value="${event.id}">
