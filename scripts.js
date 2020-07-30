@@ -60,12 +60,12 @@ function eventTemplate(event) {
   return `
   <article class="event">
     <svg class="event__size-helper" viewbox="0 0 3 2"></svg>
-    <img class="event__item event__image" src="${event.image}" alt="${event.name}">
+    <img class="event__image" src="${event.image}" alt="${event.name}">
     <div class="event__main">
       <h2 class="event__item event__title">${event.name}</h2>
       <div class="event__meta">
-        <div class="event__item event__day">${event.date.getDate()}</div>
-        <button class="event__item event__bookmark bookmark-button" type="button" name="bookmark" value="${event.id}">
+        <div class=event__day">${event.date.getDate()}</div>
+        <button class="event__bookmark bookmark-button" type="button" name="bookmark" value="${event.id}">
           <svg class="bookmark-button__icon" width="16" height="20" viewBox="0 0 16 20" aria-hidden="true" focusable="false">
             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-5-7 5V3a2 2 0 012-2h10a2 2 0 012 2v16z"/>
           </svg>
