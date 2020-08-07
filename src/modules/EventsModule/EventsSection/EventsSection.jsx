@@ -7,7 +7,7 @@ const Root = (props) => {
   )
 }
 
-const Title = ({ children, level = 1}) => {
+const Title = ({ children, level = 1 }) => {
   return createElement(`h${level}`, {
     className: 'events-section__title',
     children: children

@@ -1,4 +1,4 @@
-[
+const mocksEvents = [
   {
     "id": "01",
     "name": "Rave Autumn",
@@ -127,4 +127,10 @@
     "genre": "Electronic",
     "image": "https://cdn3.xsolla.com/files/uploaded/113250/0662c0df7663f71831e83be091228413.jpeg"
   }
-]
+];
+
+export function getEvents() {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(mocksEvents), 500)
+  });
+}
