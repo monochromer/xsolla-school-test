@@ -1,0 +1,11 @@
+# supported browsers
+last 2 versions
+> 1%
+not dead
+not op_mini all
+not ie <= 10
+not ie_mob <= 10
+not Android < 4.4
+not opera < 12
+ie 11
+edge 18

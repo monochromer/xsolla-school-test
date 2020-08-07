@@ -1,0 +1,16 @@
+import React, { Children } from 'react';
+import cn from 'classnames';
+import './Filter.scss';
+
+const Filter = (props) => {
+  const childs = Children.map(
+    props.children,
+    (item) => <li className="filter__item">{item}</li>
+  );
+
+  return (
+    <ul className={cn("filter", props.className)}>{childs}</ul>
+  )
+}
+
+export default Filter;

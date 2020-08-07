@@ -1,0 +1,27 @@
+@use "theme/colors";
+@use "theme/breakpoints";
+
+.events-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns:  1fr 1fr;
+  grid-gap: 2.5rem;
+}
+
+  .events-list__item {
+    display: grid;
+  }
+
+  .events-list__placeholder {
+    padding: 1rem 0;
+    font-size: 3rem;
+    color: colors.$gamma;
+  }
+
+@media (width <= breakpoints.$lg) {
+  .events-list {
+    grid-template-columns: 1fr;
+  }
+}

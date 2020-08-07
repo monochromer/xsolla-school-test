@@ -1,0 +1,12 @@
+.filter {
+  margin: 0 -10px;
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+  .filter__item {
+    margin: 0 10px 10px;
+  }

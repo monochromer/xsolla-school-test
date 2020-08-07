@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+@use "theme/breakpoints";
+@use "theme/colors";
+
+:root {
+  font: 100%/1.375 Avenir, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color: colors.$alpha;
+  background-color: colors.$beta;
+}
+
+body {
+  margin: 0;
+  padding: 5rem;
+  overflow-y: scroll;
+}
+
+@media (width <= breakpoints.$lg-xx) {
+  :root {
+    font-size: 87.5%;
+  }
+}
+
+@media (width <= breakpoints.$lg-xx) {
+  :root {
+    font-size: 75%;
+  }
+}
+
+@media (width <= breakpoints.$lg) {
+  :root {
+    font-size: 75%;
+  }
+
+  body {
+    padding: 0;
+  }
+}

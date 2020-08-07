@@ -1,0 +1,30 @@
+.bookmark-button {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+  .bookmark-button__icon {
+    display: block;
+  }
+
+  .bookmark-button::after {
+    content: '';
+    position: absolute;
+    opacity: 0.16;
+    top: -1.5em;
+    bottom: -1.5em;
+    left: -1.5em;
+    right: -1.5em;
+    border-radius: 0.375em;
+    background-color: #fff;
+    transition: 0.2s;
+  }
+
+  .bookmark-button:not(:hover)::after {
+    opacity: 0;
+  }
