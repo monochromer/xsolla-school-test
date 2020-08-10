@@ -1,5 +1,5 @@
 import React, { Children, cloneElement } from 'react';
-import './EventsList.scss';
+import './style.scss';
 
 const EventsList = (props) => {
   const items = props.children;

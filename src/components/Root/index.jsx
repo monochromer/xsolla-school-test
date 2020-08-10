@@ -1,4 +1,4 @@
-import './Root.scss';
+import './style.scss';
 
 const Root = props => props.children;
 

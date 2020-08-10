@@ -1,5 +1,5 @@
 import React from 'react';
-import './VisuallyHidden.scss';
+import './style.scss';
 
 const VisuallyHidden = ({ as = 'span', children }) => {
   const Tag = as;

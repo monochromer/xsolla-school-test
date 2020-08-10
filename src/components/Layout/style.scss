@@ -1,25 +1,33 @@
-.events-section {
+@use "theme/colors";
+
+.layout {
   padding: 6.25rem 6.25rem 5rem;
   background: #fff;
   box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.12);
   border-radius: 1rem;
 }
 
-  .events-section__title {
+  .layout__title {
     margin-top: 0;
     margin-bottom: 2.5rem;
     font-size: 3rem;
     font-weight: 900;
   }
 
-  .events-section__filter {
+  .layout__filter {
     margin-top: 0;
     margin-bottom: 2.625rem;
     font-size: 1.5rem;
   }
 
+  .layout__placeholder {
+    padding: 1rem 0;
+    font-size: 3rem;
+    color: colors.$gamma;
+  }
+
   @media (max-width: 768px) {
-    .events-section {
+    .layout {
       padding: 3rem;
       border-radius: 0;
       box-shadow: none;

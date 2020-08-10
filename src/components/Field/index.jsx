@@ -1,5 +1,5 @@
 import React from 'react';
-import './Field.scss';
+import './style.scss';
 
 const Field = ({ htmlFor, label, children }) => {
   return (

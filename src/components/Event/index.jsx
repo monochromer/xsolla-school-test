@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BookmarkButton from 'components/BookmarkButton/BookmarkButton';
-import './Event.scss';
+import BookmarkButton from 'components/BookmarkButton';
+import './style.scss';
+
+function parseDate(date) {
+  return new Date(...date.split('.').reverse());
+}
 
 const Event = ({ event }) => {
   return (
@@ -13,7 +17,7 @@ const Event = ({ event }) => {
           <Link className="event__link" to={`/events/${event.id}`}>{event.name}</Link>
         </h2>
         <div className="event__meta">
-          <div className="event__day">{event.date.getDate()}</div>
+          <div className="event__day">{parseDate(event.date).getDate()}</div>
           <BookmarkButton name="bookmark" value={event.id} />
         </div>
       </div>

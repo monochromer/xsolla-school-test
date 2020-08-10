@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
-import VisuallyHidden from 'components/VisuallyHidden/VisuallyHidden';
-import './BookmarkButton.scss';
+import VisuallyHidden from 'components/VisuallyHidden';
+import './style.scss';
 
 const BookmarkButton = ({ className, ...restProps }) => {
   return (

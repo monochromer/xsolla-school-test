@@ -1,6 +1,6 @@
 import React, { Children } from 'react';
 import cn from 'classnames';
-import './Filter.scss';
+import './style.scss';
 
 const Filter = (props) => {
   const childs = Children.map(

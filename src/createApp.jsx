@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import Root from 'components/Root/Root';
+import Root from 'components/Root';
 import EventsModule from 'modules/EventsModule';
 
 export function createApp() {
