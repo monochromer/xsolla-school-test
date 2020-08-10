@@ -1,8 +1,8 @@
-import React, { Children, cloneElement } from 'react';
-import './style.scss';
+import React, { Children, cloneElement } from 'react'
+import './style.scss'
 
 const EventsList = (props) => {
-  const items = props.children;
+  const items = props.children
   const content = !items
     ? <Placeholder>Loading...</Placeholder>
     : Children.map(items, item => cloneElement(item, {
@@ -12,7 +12,7 @@ const EventsList = (props) => {
   return (
     <ul className="events-list">{content}</ul>
   )
-};
+}
 
 const Placeholder = (props) => {
   return (
@@ -20,5 +20,5 @@ const Placeholder = (props) => {
   )
 }
 
-export default EventsList;
-export { Placeholder };
+export default EventsList
+export { Placeholder }

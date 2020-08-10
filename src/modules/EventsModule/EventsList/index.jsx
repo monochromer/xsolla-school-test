@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { getEvents } from 'api/events';
-import Filter from 'components/Filter';
-import Select from 'components/Select';
-import Field from 'components/Field';
-import EventsList, { Placeholder as EventsListPlaceholder} from 'components/EventsList';
-import Event from 'components/Event';
-import * as Layout from 'components/Layout';
+import React, { useState, useEffect } from 'react'
+import { getEvents } from 'api/events'
+import Filter from 'components/Filter'
+import Select from 'components/Select'
+import Field from 'components/Field'
+import EventsList, { Placeholder as EventsListPlaceholder } from 'components/EventsList'
+import Event from 'components/Event'
+import * as Layout from 'components/Layout'
 
 const citiesItems = [
   {
@@ -32,7 +32,7 @@ const citiesItems = [
     value: 'Moscow',
     label: 'Moscow'
   }
-];
+]
 
 const months = [
   {
@@ -86,15 +86,15 @@ const months = [
   {
     value: 'December',
     label: 'December'
-  },
-];
+  }
+]
 
-function List() {
-  const [events, setEvents] = useState([]);
+function List () {
+  const [events, setEvents] = useState([])
 
   useEffect(() => {
     getEvents().then(setEvents)
-  }, []);
+  }, [])
 
   return (
     <Layout.Root>
@@ -119,4 +119,4 @@ function List() {
   )
 }
 
-export default List;
+export default List

@@ -1,9 +1,9 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import EventsList from './EventsList';
-import SingleEvent from './SingleEvent';
+import React from 'react'
+import { Switch, Route } from 'react-router-dom'
+import EventsList from './EventsList'
+import SingleEvent from './SingleEvent'
 
-function EventsModule({ match }) {
+function EventsModule ({ match }) {
   return (
     <Switch>
       <Route path={match.url} component={EventsList} exact />
@@ -12,4 +12,4 @@ function EventsModule({ match }) {
   )
 }
 
-export default EventsModule;
+export default EventsModule

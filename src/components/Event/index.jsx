@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import BookmarkButton from 'components/BookmarkButton';
-import './style.scss';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import BookmarkButton from 'components/BookmarkButton'
+import './style.scss'
 
-function parseDate(date) {
-  return new Date(...date.split('.').reverse());
+function parseDate (date) {
+  return new Date(...date.split('.').reverse())
 }
 
 const Event = ({ event }) => {
@@ -23,6 +23,6 @@ const Event = ({ event }) => {
       </div>
     </article>
   )
-};
+}
 
-export default Event;
+export default Event

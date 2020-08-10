@@ -1,5 +1,5 @@
-import './style.scss';
+import './style.scss'
 
-const Root = props => props.children;
+const Root = props => props.children
 
-export default Root;
+export default Root

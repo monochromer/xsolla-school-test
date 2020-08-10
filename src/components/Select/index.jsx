@@ -1,7 +1,7 @@
-import React from 'react';
-import './style.scss';
+import React from 'react'
+import './style.scss'
 
-const Select = ({ items, ...restProps}) => {
+const Select = ({ items, ...restProps }) => {
   return (
     <select className="select" {...restProps}>
       {items.map((item) => <option key={item.value} {...item}></option>)}
@@ -9,4 +9,4 @@ const Select = ({ items, ...restProps}) => {
   )
 }
 
-export default Select;
+export default Select

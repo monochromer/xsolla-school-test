@@ -1,5 +1,5 @@
-import React from 'react';
-import './style.scss';
+import React from 'react'
+import './style.scss'
 
 const Field = ({ htmlFor, label, children }) => {
   return (
@@ -10,4 +10,4 @@ const Field = ({ htmlFor, label, children }) => {
   )
 }
 
-export default Field;
+export default Field

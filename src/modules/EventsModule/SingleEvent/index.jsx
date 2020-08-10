@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { getEventById } from 'api/events';
-import EventView from 'components/Event';
-import * as Layout from 'components/Layout';
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { getEventById } from 'api/events'
+import EventView from 'components/Event'
+import * as Layout from 'components/Layout'
 
 const SingleEvent = ({ match, parentUrl }) => {
-  const [eventData, setEventData] = useState();
+  const [eventData, setEventData] = useState()
 
   useEffect(() => {
-    const id = parseInt(match.params.id);
+    const id = parseInt(match.params.id)
     getEventById(id).then(setEventData)
-  }, [match.params.id]);
+  }, [match.params.id])
 
   return (
     <Layout.Root>
@@ -25,4 +25,4 @@ const SingleEvent = ({ match, parentUrl }) => {
   )
 }
 
-export default SingleEvent;
+export default SingleEvent
