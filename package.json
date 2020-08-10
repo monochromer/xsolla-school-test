@@ -5,8 +5,10 @@
     "start": "NODE_ENV=development webpack-dev-server",
     "dev": "npm start",
     "build": "NODE_ENV=production webpack",
-    "lint": "eslint ./src --ext .js,.jsx",
-    "lint:fix": "eslint --fix ./src --ext .js,.jsx",
+    "lint:js": "eslint ./src --ext .js,.jsx",
+    "lint:js:fix": "eslint --fix ./src --ext .js,.jsx",
+    "lint:css": "stylelint 'src/**/*.{css,scss}'",
+    "lint:css:fix": "stylelint --fix 'src/**/*.{css,scss}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
@@ -30,6 +32,9 @@
     "sass": "^1.26.10",
     "sass-loader": "^9.0.3",
     "style-loader": "^1.2.1",
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.18.0",
     "url-loader": "^4.1.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
