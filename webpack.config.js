@@ -44,7 +44,7 @@ function webpackConfig(env, argv) {
       host: 'localhost',
       port: process.env.PORT || '9000',
       contentBase: [
-          path.resolve(__dirname, 'dist')
+        path.resolve(__dirname, 'dist')
       ],
       historyApiFallback: true,
       overlay: true,
