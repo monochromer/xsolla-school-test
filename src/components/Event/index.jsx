@@ -3,11 +3,16 @@ import { Link } from 'react-router-dom'
 import BookmarkButton from 'components/BookmarkButton'
 import './style.scss'
 
-function parseDate (date) {
-  return new Date(...date.split('.').reverse())
-}
+/**
+ * @typedef Event
+ * @type {object}
+ * @property {number} id - ID of event.
+ * @property {string} image - url of event image.
+ * @property {string} name - event name.
+ * @property {Date} date - event date.
+ */
 
-const Event = ({ event }) => {
+const Event = ({ /** @type {Event} */event }) => {
   return (
     <article className="event">
       <svg className="event__size-helper" viewBox="0 0 3 2"></svg>
@@ -17,7 +22,7 @@ const Event = ({ event }) => {
           <Link className="event__link" to={`/events/${event.id}`}>{event.name}</Link>
         </h2>
         <div className="event__meta">
-          <div className="event__day">{parseDate(event.date).getDate()}</div>
+          <div className="event__day">{event.date.getDate()}</div>
           <BookmarkButton name="bookmark" value={event.id} />
         </div>
       </div>

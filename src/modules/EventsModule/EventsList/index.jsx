@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { getEvents } from 'api/events'
+import React, { useState, useEffect, useMemo, useCallback } from 'react'
+import { getEvents, parseDate } from 'api/events'
 import Filter from 'components/Filter'
 import Select from 'components/Select'
 import Field from 'components/Field'
@@ -89,8 +89,57 @@ const months = [
   }
 ]
 
+const MonthsMap = {
+  'January': 0,
+  'February': 1,
+  'March': 2,
+  'April': 3,
+  'May': 4,
+  'June': 5,
+  'July': 6,
+  'August': 7,
+  'September': 8,
+  'October': 9,
+  'November': 10,
+  'December': 11,
+}
+
+const filtersMap = {
+  city: city => item => item.city === city,
+  month: month => item => item.date.getMonth() === MonthsMap[month]
+}
+
 function List () {
-  const [events, setEvents] = useState([])
+  const [allEvents, setEvents] = useState([])
+  const [filters, setFilters] = useState({
+    city: 'all',
+    month: 'all'
+  })
+
+  const onFilterChange = useCallback((event) => {
+    const { target } = event
+    setFilters((oldFilters) => ({
+      ...oldFilters,
+      ...{
+        [target.name]: target.value
+      }
+    }))
+  }, [setFilters])
+
+  const events = useMemo(() => {
+    const currentFilters = Object.entries(filters)
+      .map(([filterKey, filterValue]) => filterValue === 'all'
+        ? () => true
+        : filtersMap[filterKey](filterValue)
+      )
+
+    return allEvents
+      .map(eventItem => ({
+        ...eventItem,
+        date: parseDate(eventItem.date)
+      }))
+      .filter(eventItem => currentFilters.every(filter => filter(eventItem)))
+  }, [allEvents, filters])
 
   useEffect(() => {
     getEvents().then(setEvents)
@@ -102,17 +151,21 @@ function List () {
       <Layout.Filter>
         <Filter>
           <Field label="City" htmlFor="city-input">
-            <Select id="city-input" name="city" items={citiesItems}/>
+            <Select id="city-input" name="city" value={filters.city} onChange={onFilterChange} items={citiesItems}/>
           </Field>
           <Field label="Month" htmlFor="month-input">
-            <Select id="month-input" name="month" items={months}/>
+            <Select id="month-input" name="month" value={filters.month} onChange={onFilterChange} items={months}/>
           </Field>
         </Filter>
       </Layout.Filter>
       <EventsList>
-        {events && events.length > 0
-          ? events.map(event => <Event key={event.id} event={event} />)
-          : <EventsListPlaceholder>Loading...</EventsListPlaceholder>
+        {allEvents.length === 0
+          ? <EventsListPlaceholder>Loading...</EventsListPlaceholder>
+          : (
+            events && events.length > 0
+              ? events.map(event => <Event key={event.id} event={event} />)
+              : <EventsListPlaceholder>No events were found</EventsListPlaceholder>
+          )
         }
       </EventsList>
     </Layout.Root>

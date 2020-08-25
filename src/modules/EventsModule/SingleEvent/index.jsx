@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { getEventById } from 'api/events'
+import { getEventById, parseDate } from 'api/events'
 import EventView from 'components/Event'
 import * as Layout from 'components/Layout'
 
@@ -9,7 +9,10 @@ const SingleEvent = ({ match, parentUrl }) => {
 
   useEffect(() => {
     const id = parseInt(match.params.id)
-    getEventById(id).then(setEventData)
+    getEventById(id).then(event => setEventData({
+      ...event,
+      date: parseDate(event.date)
+    }))
   }, [match.params.id])
 
   return (

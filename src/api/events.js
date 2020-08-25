@@ -17,3 +17,7 @@ export function getEvents () {
 export function getEventById (id) {
   return request(`/events/${id}`)
 }
+
+export function parseDate (date) {
+  return new Date(...date.split('.').reverse())
+}
