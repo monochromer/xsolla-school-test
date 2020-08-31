@@ -14,12 +14,6 @@
     display: grid;
   }
 
-  .events-list__placeholder {
-    padding: 1rem 0;
-    font-size: 3rem;
-    color: colors.$gamma;
-  }
-
 @media (width <= breakpoints.$lg) {
   .events-list {
     grid-template-columns: 1fr;

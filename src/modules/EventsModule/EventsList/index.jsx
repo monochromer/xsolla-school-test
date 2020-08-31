@@ -3,7 +3,8 @@ import { getEvents, parseDate } from 'api/events'
 import Filter from 'components/Filter'
 import Select from 'components/Select'
 import Field from 'components/Field'
-import EventsList, { Placeholder as EventsListPlaceholder } from 'components/EventsList'
+import EventsList from 'components/EventsList'
+import Placeholder from 'components/Placeholder';
 import Event from 'components/Event'
 import * as Layout from 'components/Layout'
 
@@ -109,12 +110,19 @@ const filtersMap = {
   month: month => item => item.date.getMonth() === MonthsMap[month]
 }
 
+const LOAD_STATE = {
+  IDLE: 'IDLE',
+  LOADING: 'LOADING',
+  ERROR: 'ERROR'
+}
+
 function List () {
   const [allEvents, setEvents] = useState([])
   const [filters, setFilters] = useState({
     city: 'all',
     month: 'all'
   })
+  const [loadState, setLoadState] = useState(LOAD_STATE.IDLE)
 
   const onFilterChange = useCallback((event) => {
     const { target } = event
@@ -142,8 +150,12 @@ function List () {
   }, [allEvents, filters])
 
   useEffect(() => {
-    getEvents().then(setEvents)
-  }, [])
+    setLoadState(LOAD_STATE.LOADING)
+    getEvents()
+      .then(setEvents)
+      .then(() => setLoadState(LOAD_STATE.IDLE))
+      .catch(() => setLoadState(LOAD_STATE.ERROR))
+  }, [setLoadState])
 
   return (
     <Layout.Root>
@@ -158,16 +170,23 @@ function List () {
           </Field>
         </Filter>
       </Layout.Filter>
-      <EventsList>
-        {allEvents.length === 0
-          ? <EventsListPlaceholder>Loading...</EventsListPlaceholder>
-          : (
-            events && events.length > 0
-              ? events.map(event => <Event key={event.id} event={event} />)
-              : <EventsListPlaceholder>No events were found</EventsListPlaceholder>
+      {loadState === LOAD_STATE.LOADING && (
+        <Placeholder>Loading...</Placeholder>
+      )}
+
+      {loadState === LOAD_STATE.ERROR && (
+        <Placeholder type="error">Something went wrong</Placeholder>
+      )}
+
+      {loadState === LOAD_STATE.IDLE && (
+        events && events.length > 0
+          ? (
+            <EventsList>
+              {events.map(event => <Event key={event.id} event={event} />)}
+            </EventsList>
           )
-        }
-      </EventsList>
+          : <Placeholder>No events were found</Placeholder>
+      )}
     </Layout.Root>
   )
 }

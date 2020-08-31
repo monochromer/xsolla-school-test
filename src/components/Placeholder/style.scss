@@ -1,0 +1,11 @@
+@use "theme/colors";
+
+.placeholder {
+  padding: 1rem 0;
+  font-size: 3rem;
+  color: colors.$gamma;
+}
+
+  .placeholder_type_error {
+    color: colors.$danger;
+  }
