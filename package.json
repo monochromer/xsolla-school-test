@@ -10,7 +10,9 @@
     "lint:css": "stylelint 'src/**/*.{css,scss}'",
     "lint:css:fix": "stylelint --fix 'src/**/*.{css,scss}'",
     "server": "json-server --watch seed/events.json --port 9001",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run --headless"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
@@ -21,6 +23,7 @@
     "babel-loader": "^8.1.0",
     "css-loader": "^4.2.0",
     "csso-webpack-plugin": "^2.0.0-beta.1",
+    "cypress": "^5.0.0",
     "eslint": "^7.6.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
